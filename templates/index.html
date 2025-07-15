@@ -35,9 +35,9 @@
             <li><a class="list-link" data-scroll="contact" href="#">Bo’glanish</a></li>
           </ul>
           <div class="mobile-list">
-            <a class="call-btn" href="tel:+999 999 99 99">
+            <a class="call-btn" href="tel:{{ our_contact.phone }}">
               <img width="20" height="20" src="{% static 'img/phone.svg' %}" alt="phone" />
-              <span> +999 999 99 99</span>
+              <span>{{ our_contact.phone }}</span>
             </a>
             <div class="burger"><span></span><span></span><span></span></div>
           </div>
@@ -289,35 +289,35 @@
               <h3 class="contact-info-title">Biz bilan bo’glaning</h3>
               <ul class="contact-info-list">
                 <li class="contact-info-item">
-                  <a class="contact-info-link" href="#">
+                  <a class="contact-info-link" target = "_blank" href="tel:{{ our_contact.phone }}">
                     <img src="{% static 'img/phone.svg' %}" alt="phone" />
-                    <p>+998 99 999 99 99</p>
+                    <p>{{ our_contact.phone }}</p>
                   </a>
                 </li>
                 <li class="contact-info-item">
-                  <a class="contact-info-link" href="#">
+                  <a class="contact-info-link" target = "_blank" href="mailto:{{ our_contact.email }}">
                     <img src="{% static 'img/envelope.svg' %}" alt="envelope" />
-                    <p>geeks-soft@gmail.com</p>
+                    <p>{{ our_contact.email }}</p>
                   </a>
                 </li>
                 <li class="contact-info-item">
-                  <a class="contact-info-link" href="#">
+                  <a class="contact-info-link" target = "_blank" href="{% if our_contact %}https://www.google.com/maps/search/?api=1&query={{ our_contact.address }}{% else %}https://www.google.com/maps/search/?api=1&query=Андижан, просп. Бабура, 92{% endif %}">
                     <img src="{% static 'img/location.svg' %}" alt="location" />
-                    <p>Андижан, просп. Бабура, 92</p>
+                    <p>{% if our_contact %}{{ our_contact.address }}{% else %}Андижан, просп. Бабура, 92{% endif %}</p>
                   </a>
                 </li>
               </ul>
               <div class="socila-media">
-                <a href="#" class="social-btn"
+                <a href="{{ our_contact.telegram_link }}" target = "_blank" class="social-btn"
                   ><img src="{% static 'img/telegram.svg' %}" alt="telegram"
                 /></a>
-                <a href="#" class="social-btn"
+                <a href="{{ our_contact.instagram_link }}" target = "_blank" class="social-btn"
                   ><img src="{% static 'img/instagram.svg' %}" alt="instagram"
                 /></a>
-                <a href="#" class="social-btn"
+                <a href="{{ our_contact.tik_tok_link }}" target = "_blank" class="social-btn"
                   ><img src="{% static 'img/tiktok.svg' %}" alt="tiktok"
                 /></a>
-                <a href="#" class="social-btn"
+                <a href="{{ our_contact.twitter_link }}" target = "_blank" class="social-btn"
                   ><img src="{% static 'img/twitter.svg' %}" alt="twitter"
                 /></a>
               </div>
@@ -374,16 +374,16 @@
               yordamida loyihalaringizni yangi bosqichga olib chiqing.
             </p>
             <div class="social-media">
-              <a href="#" class="social-btn">
+              <a href="{{ our_contact.telegram_link }}" target = "_blank" class="social-btn">
                 <img src="{% static 'img/telegram.svg' %}" alt="Telegram" />
               </a>
-              <a href="#" class="social-btn">
+              <a href="{{ our_contact.instagram_link }}" target = "_blank" class="social-btn">
                 <img src="{% static 'img/instagram.svg' %}" alt="Instagram" />
               </a>
-              <a href="#" class="social-btn">
+              <a href="{{ our_contact.tik_tok_link }}" target = "_blank" class="social-btn">
                 <img src="{% static 'img/tiktok.svg' %}" alt="TikTok" />
               </a>
-              <a href="#" class="social-btn">
+              <a href="{{ our_contact.twitter_link }}" target = "_blank" class="social-btn">
                 <img src="{% static 'img/twitter.svg' %}" alt="Twitter" />
               </a>
             </div>
@@ -559,4 +559,4 @@
 .custom-close-btn:hover {
     color: #d9534f;
 }
-</style>
+</style> 

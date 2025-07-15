@@ -34,3 +34,15 @@ class FAQ(models.Model):
     class Meta:
         verbose_name = "FAQ"
         verbose_name_plural = "FAQs"
+
+class OurContact(models.Model):
+    address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=18)
+    email = models.EmailField()
+    telegram_link = models.URLField(blank=True, null=True)
+    instagram_link = models.URLField(blank=True, null=True)
+    tik_tok_link = models.URLField(blank=True, null=True)
+    twitter_link = models.URLField(blank=True, null=True)
+
+    def __str__(self):
+        return self.address

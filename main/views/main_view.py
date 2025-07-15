@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from main.models.main_model import FAQ, Contact, CustomerOpinion, Portfolio
+from main.models.main_model import FAQ, Contact, CustomerOpinion, Portfolio , OurContact
 import re
 import requests
 
@@ -45,12 +45,14 @@ def home(request):
     customer_opinion = CustomerOpinion.objects.all()
     portfolio = Portfolio.objects.all()
     faq = FAQ.objects.all()
+    our_contact = OurContact.objects.last()  # Assuming only one contact info is needed
 
     context = {
         'contact': contact,
         'opinions': customer_opinion,
         'portfolios': portfolio,
-        'faqs': faq
+        'faqs': faq,
+        'our_contact': our_contact
     }
     return render(request, 'index.html', context)
 
